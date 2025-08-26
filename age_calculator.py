@@ -21,3 +21,7 @@ user_input_year = int(input("¿En qué año naciste? "))
 # Mostramos info
 print(f"Hoy es {today.day} de {name_month}, del año {today.year}")
 print(f"Tu cumpleaños es el {user_input_day} de {months[user_input_month]} de {user_input_year}")
+if today.month > user_input_month or (today.month == user_input_month and today.day > user_input_day):
+    print(f"Tienes {today.year - user_input_year} años.")
+else:
+    print(f"Tienes {today.year - user_input_year - 1} años.")
