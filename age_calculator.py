@@ -3,7 +3,7 @@ from datetime import datetime
 # Fecha actual
 today = datetime.now()
 
-# Diccionario de meses
+# Diccionario
 months = {
     1: "Enero", 2: "Febrero", 3: "Marzo", 4: "Abril", 
     5: "Mayo", 6: "Junio", 7: "Julio", 8: "Agosto",
@@ -14,14 +14,35 @@ months = {
 name_month = months[today.month]
 
 # Pedimos datos
-user_input_day = int(input("¿Qué día es tu cumpleaños? "))
-user_input_month = int(input("¿Qué mes cumples años?"))
-user_input_year = int(input("¿En qué año naciste? "))
+while True:
+    try:
+        user_input_day = int(input("¿Qué día es tu cumpleaños? "))
+        user_input_month = int(input("¿Qué mes cumples años? "))
+        user_input_year = int(input("¿En qué año naciste? "))
 
-# Mostramos info
-print(f"Hoy es {today.day} de {name_month}, del año {today.year}")
-print(f"Tu cumpleaños es el {user_input_day} de {months[user_input_month]} de {user_input_year}")
-if today.month > user_input_month or (today.month == user_input_month and today.day > user_input_day):
-    print(f"Tienes {today.year - user_input_year} años.")
-else:
-    print(f"Tienes {today.year - user_input_year - 1} años.")
+        print(f"Hoy es {today.day} de {name_month}, del año {today.year}")
+        print(f"Tu cumpleaños es el {user_input_day} de {months[user_input_month]} de {user_input_year}")
+
+        if today.month > user_input_month or (today.month == user_input_month and today.day > user_input_day):
+            print(f"Tienes {today.year - user_input_year} años.\n")
+        elif today.month == user_input_month and today.day == user_input_day:
+            print("¡Feliz cumpleaños!")
+        else: 
+            print(f"Tienes {today.year - user_input_year - 1} años.\n")
+
+        #Salir del programa (s/n)
+        quieres_salir = input("¿Quieres salir? (s/n): ")
+        if quieres_salir.lower() == "s":
+            print("Ok, Baiii!")
+            break
+        if quieres_salir.lower() == "n":
+            continue
+        else:
+            print("Opción no válida.")
+            continue
+
+    except ValueError:
+        print("Por favor, ingresa valores válidos.")
+    except NameError:
+        print("Por favor, completa todos los campos.")
+
