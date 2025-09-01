@@ -29,18 +29,17 @@ while True:
             print("¡Feliz cumpleaños!")
         else: 
             print(f"Tienes {today.year - user_input_year - 1} años.\n")
-
         #Salir del programa (s/n)
-        quieres_salir = input("¿Quieres salir? (s/n): ")
-        if quieres_salir.lower() == "s":
-            print("Ok, Baiii!")
-            break
-        if quieres_salir.lower() == "n":
-            continue
-        else:
-            print("Opción no válida.")
-            continue
-
+        while True:
+            quieres_salir = input("¿Quieres salir? (s/n): ")
+            if quieres_salir.lower() == "s":
+                print("Ok, Baiii!")
+                exit()
+            elif quieres_salir.lower() == "n":
+                break
+            else:
+                print("Opción no válida.")
+                continue
     except ValueError:
         print("Por favor, ingresa valores válidos.")
     except NameError:
