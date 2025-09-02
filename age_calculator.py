@@ -77,5 +77,5 @@ while True:
     except NameError:
         print("Por favor, completa todos los campos.")
     except KeyboardInterrupt:
-    print("¡Hasta luego!")
-    exit()
+        print("¡Hasta luego!")
+        exit()
