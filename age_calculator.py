@@ -20,30 +20,6 @@ maximum_age = 120
 #Primer while es para el programa en general
 while True:
     try:
-        """#Es para validar los datos que introduce el usuario
-        while True:
-            user_input_day = int(input("¿Qué día es tu cumpleaños? "))
-            if user_input_day < 1 or user_input_day > 31:
-                print("Por favor, ingresa un día válido.")
-                continue
-            else:
-                break
-        while True:
-            user_input_month = int(input("¿Qué mes cumples años? "))
-            if user_input_month < 1 or user_input_month > 12:
-                print("Por favor, ingresa un mes válido. (1 - 12)")
-                continue
-            else:
-                break
-        while True:
-            user_input_year = int(input("¿En qué año naciste? "))
-            if today.year - user_input_year > maximum_age:
-                print(f"Por favor, ingresa un año de nacimiento válido.")
-                continue
-            else:
-                break
-        """
-
         # Validar fecha completa con datetime
         while True:
             try:
@@ -101,5 +77,5 @@ while True:
     except NameError:
         print("Por favor, completa todos los campos.")
     except KeyboardInterrupt:
-        print("\n¡Hasta luego!")
-        exit()
+    print("¡Hasta luego!")
+    exit()
