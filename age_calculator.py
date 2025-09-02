@@ -20,7 +20,7 @@ maximum_age = 120
 #Primer while es para el programa en general
 while True:
     try:
-        #Es para validar los datos que introduce el usuario
+        """#Es para validar los datos que introduce el usuario
         while True:
             user_input_day = int(input("¿Qué día es tu cumpleaños? "))
             if user_input_day < 1 or user_input_day > 31:
@@ -42,7 +42,41 @@ while True:
                 continue
             else:
                 break
-        print(f"Hoy es {today.day} de {name_month}, del año {today.year}")
+        """
+
+        # Validar fecha completa con datetime
+        while True:
+            try:
+                user_input_day = int(input("¿Qué día es tu cumpleaños? "))
+                while True:
+                    user_input_month = int(input("¿Qué mes cumples años? "))
+                    if user_input_month in months:
+                        break
+                    else:
+                        print("Mes inválido (1 - 12)")
+                user_input_year = int(input("¿En qué año naciste? "))
+
+                # Construir la fecha
+                #birthday = datetime(user_input_year, user_input_month, user_input_day)
+
+                # Validar que la edad no supere el máximo
+                if today.year - user_input_year > maximum_age:
+                    print(f"Por favor, ingresa un año de nacimiento válido (máx {maximum_age} años). ")
+                    continue
+                
+                if today.year < user_input_year:
+                    print(f"Ingresa un año válido, máximo {today.year}. ")
+                    continue
+
+                break  
+            # Fecha válida → salimos del bucle
+
+            except ValueError:
+                print(f"Fecha inválida. ¿Tu cumpleaños es el {user_input_day} de {months[user_input_month]} de {user_input_year}?   \n")
+
+        #Menciona el día que es hoy
+        print(f"\nHoy es {today.day} de {name_month} del {today.year}")
+        #Menciona el día de cumpleaños
         print(f"Tu cumpleaños es el {user_input_day} de {months[user_input_month]} de {user_input_year}")
         if today.month > user_input_month or (today.month == user_input_month and today.day > user_input_day):
             print(f"Tienes {today.year - user_input_year} años.\n")
@@ -66,4 +100,6 @@ while True:
         print("Por favor, ingresa valores válidos.")
     except NameError:
         print("Por favor, completa todos los campos.")
-
+    except KeyboardInterrupt:
+        print("\n¡Hasta luego!")
+        exit()
