@@ -33,7 +33,7 @@ while True:
                 user_input_year = int(input("¿En qué año naciste? "))
 
                 # Construir la fecha
-                #birthday = datetime(user_input_year, user_input_month, user_input_day)
+                birthday = datetime(user_input_year, user_input_month, user_input_day)
 
                 # Validar que la edad no supere el máximo
                 if today.year - user_input_year > maximum_age:
@@ -73,9 +73,9 @@ while True:
                 print("Opción no válida.")
                 continue
     except ValueError:
-        print("Por favor, ingresa valores válidos.")
+        print(f"{ValueError} es un dato inválido. \nPor favor, ingresa valores válidos.\n")
     except NameError:
-        print("Por favor, completa todos los campos.")
+       print(f"Es un dato inválido. \nPor favor, ingresa valores válidos.\n")
     except KeyboardInterrupt:
-        print("¡Hasta luego!")
+        print("¡Hasta luego!\n")
         exit()
