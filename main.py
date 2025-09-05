@@ -3,15 +3,26 @@ import age_calculate
 #Main function to test the age calculator
 if __name__ == "__main__":
         print("Bienvenido al Calculadora")
-        print("Elige una opción:\n")
         print("1. Calcular edad")
         print("2. Cronómetro (Próximamente)")
         print("3. Temporizador (Próximamente)")
         print("4. Operaciones matemáticas (Próximamente)")
         print("0. Salir")
+        counter = 0
         while True:
             try:
                 option = int(input("Selecciona una opción: "))
+                counter += 1
+                if counter == 30:
+                    print("Selecciona una opción:\n")
+                    print("1. Calcular edad")
+                    print("2. Cronómetro (Próximamente)")
+                    print("3. Temporizador (Próximamente)")
+                    print("4. Operaciones matemáticas (Próximamente)")
+                    print("0. Salir")
+                    continue
+                else:
+                    pass
             except ValueError:
                 print("Por favor, ingresa un número válido.\n")
                 continue
