@@ -1,22 +1,22 @@
 from datetime import datetime
-""" Agregar la función para hacer un tipo login, ingrese contraseña o usuario y sin eso que no pueda ejecutar el programa """
-# Fecha actual
-today = datetime.now()
+"""
+declaración de variables
+"""# Fecha actual
+TODAY = datetime.now()
 
 # Diccionario
-months = {
+MONTHS = {
     1: "Enero", 2: "Febrero", 3: "Marzo", 4: "Abril", 
     5: "Mayo", 6: "Junio", 7: "Julio", 8: "Agosto",
     9: "Septiembre", 10: "Octubre", 11: "Noviembre", 12: "Diciembre"
 }
 
 # Obtener nombre del mes actual
-name_month = months[today.month]
+name_month = MONTHS[TODAY.month]
 
 maximum_age = 120
 
-
-# Pedimos datos
+#Pedimos datos
 #Primer while es para el programa en general
 while True:
     try:
@@ -26,7 +26,7 @@ while True:
                 user_input_day = int(input("¿Qué día es tu cumpleaños? "))
                 while True:
                     user_input_month = int(input("¿Qué mes cumples años? "))
-                    if user_input_month in months:
+                    if user_input_month in MONTHS:
                         break
                     else:
                         print("Mes inválido (1 - 12)")
@@ -36,30 +36,31 @@ while True:
                 birthday = datetime(user_input_year, user_input_month, user_input_day)
 
                 # Validar que la edad no supere el máximo
-                if today.year - user_input_year > maximum_age:
+                if TODAY.year - user_input_year > maximum_age:
                     print(f"Por favor, ingresa un año de nacimiento válido (máx {maximum_age} años). ")
                     continue
                 
-                if today.year < user_input_year:
-                    print(f"Ingresa un año válido, máximo {today.year}. ")
+                if TODAY.year < user_input_year:
+                    print(f"Ingresa un año válido, máximo {TODAY.year}. ")
                     continue
 
                 break  
             # Fecha válida → salimos del bucle
 
             except ValueError:
-                print(f"Fecha inválida. ¿Tu fecha de nacimiento es el {user_input_day} de {months[user_input_month]} de {user_input_year}?   \n")
+                print(f"Fecha inválida. ¿Tu fecha de nacimiento es el {user_input_day} de {MONTHS[user_input_month]} de {user_input_year}?   \n")
 
         #Menciona el día que es hoy
-        print(f"\nHoy es {today.day} de {name_month} del {today.year}")
+        print(f"\nHoy es {TODAY.day} de {name_month} del {TODAY.year}")
         #Menciona el día de cumpleaños
-        print(f"Tu cumpleaños es el {user_input_day} de {months[user_input_month]}. ")
-        if today.month > user_input_month or (today.month == user_input_month and today.day > user_input_day):
-            print(f"Tienes {today.year - user_input_year} años.\n")
-        elif today.month == user_input_month and today.day == user_input_day:
+        print(f"Tu cumpleaños es el {user_input_day} de {MONTHS[user_input_month]}. ")
+        if TODAY.month > user_input_month or (TODAY.month == user_input_month and TODAY.day > user_input_day):
+            print(f"Tienes {TODAY.year - user_input_year} años.\n")
+        elif TODAY.month == user_input_month and TODAY.day == user_input_day:
             print("¡Feliz cumpleaños!")
+            print(f"Cumples {TODAY.year - user_input_year} años.\n")
         else: 
-            print(f"Tienes {today.year - user_input_year - 1} años.\n")
+            print(f"Tienes {TODAY.year - user_input_year - 1} años.\n")
             
         #Salir del programa (s/n)
         while True:
