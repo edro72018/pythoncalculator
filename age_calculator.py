@@ -48,12 +48,12 @@ while True:
             # Fecha válida → salimos del bucle
 
             except ValueError:
-                print(f"Fecha inválida. ¿Tu cumpleaños es el {user_input_day} de {months[user_input_month]} de {user_input_year}?   \n")
+                print(f"Fecha inválida. ¿Tu fecha de nacimiento es el {user_input_day} de {months[user_input_month]} de {user_input_year}?   \n")
 
         #Menciona el día que es hoy
         print(f"\nHoy es {today.day} de {name_month} del {today.year}")
         #Menciona el día de cumpleaños
-        print(f"Tu cumpleaños es el {user_input_day} de {months[user_input_month]} de {user_input_year}")
+        print(f"Tu cumpleaños es el {user_input_day} de {months[user_input_month]}. ")
         if today.month > user_input_month or (today.month == user_input_month and today.day > user_input_day):
             print(f"Tienes {today.year - user_input_year} años.\n")
         elif today.month == user_input_month and today.day == user_input_day:
